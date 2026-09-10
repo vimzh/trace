@@ -1,0 +1,9 @@
+.deploy
+.git
+apps/api/**
+!apps/api/package.json
+apps/web/.next
+deploy
+docs
+node_modules
+pipeline_tests
