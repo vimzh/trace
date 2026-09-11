@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <title>Trace</title>
+  <rect width="32" height="32" rx="7" fill="#397CE8"/>
+  <circle cx="10" cy="16" r="3" fill="#FFF"/>
+  <circle cx="10" cy="25" r="3" fill="#FFF"/>
+  <circle cx="22" cy="7" r="3" fill="#FFF"/>
+  <circle cx="22" cy="16" r="3" fill="#FFF"/>
+</svg>
