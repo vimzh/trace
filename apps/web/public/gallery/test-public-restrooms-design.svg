@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 973 713" width="973" height="713">
+<rect width="973" height="713" fill="white"/>
+<polygon data-id="r-women-main" points="10,10 180,10 180,455 345,455 345,700 255,700 255,600 10,600" fill="#f5f5f4" stroke="#d6d3d1" stroke-width="1"/>
+<text x="197.5" y="441.25" font-family="monospace" font-size="17" fill="#44403c" text-anchor="middle" dominant-baseline="middle">Women's Restroom</text>
+<polygon data-id="r-women-stall1" points="180,10 420,10 420,155 180,155" fill="#f5f5f4" stroke="#d6d3d1" stroke-width="1"/>
+<text x="300" y="82.5" font-family="monospace" font-size="20" fill="#44403c" text-anchor="middle" dominant-baseline="middle">Stall</text>
+<polygon data-id="r-women-stall2" points="180,155 420,155 420,305 180,305" fill="#f5f5f4" stroke="#d6d3d1" stroke-width="1"/>
+<text x="300" y="230" font-family="monospace" font-size="20" fill="#44403c" text-anchor="middle" dominant-baseline="middle">Stall</text>
+<polygon data-id="r-women-stall3" points="180,305 420,305 420,455 180,455" fill="#f5f5f4" stroke="#d6d3d1" stroke-width="1"/>
+<text x="300" y="380" font-family="monospace" font-size="20" fill="#44403c" text-anchor="middle" dominant-baseline="middle">Stall</text>
+<polygon data-id="r-women-storage" points="10,600 255,600 255,700 10,700" fill="#f5f5f4" stroke="#d6d3d1" stroke-width="1"/>
+<text x="132.5" y="650" font-family="monospace" font-size="20" fill="#44403c" text-anchor="middle" dominant-baseline="middle">Storage</text>
+<polygon data-id="r-vestibule" points="345,455 560,455 560,700 345,700" fill="#f5f5f4" stroke="#d6d3d1" stroke-width="1"/>
+<text x="452.5" y="577.5" font-family="monospace" font-size="20" fill="#44403c" text-anchor="middle" dominant-baseline="middle">Entrance</text>
+<polygon data-id="r-men-main" points="735,10 900,10 900,426 875,426 875,700 560,700 560,455 485,455 485,290 735,290" fill="#f5f5f4" stroke="#d6d3d1" stroke-width="1"/>
+<text x="711" y="376.2" font-family="monospace" font-size="18" fill="#44403c" text-anchor="middle" dominant-baseline="middle">Men's Restroom</text>
+<polygon data-id="r-men-storage" points="875,426 965,426 965,700 875,700" fill="#f5f5f4" stroke="#d6d3d1" stroke-width="1"/>
+<text x="920" y="563" font-family="monospace" font-size="20" fill="#44403c" text-anchor="middle" dominant-baseline="middle">Storage</text>
+<polygon data-id="r-men-stall1" points="485,10 735,10 735,145 485,145" fill="#f5f5f4" stroke="#d6d3d1" stroke-width="1"/>
+<text x="610" y="77.5" font-family="monospace" font-size="20" fill="#44403c" text-anchor="middle" dominant-baseline="middle">Stall</text>
+<polygon data-id="r-men-stall2" points="485,145 735,145 735,290 485,290" fill="#f5f5f4" stroke="#d6d3d1" stroke-width="1"/>
+<text x="610" y="217.5" font-family="monospace" font-size="20" fill="#44403c" text-anchor="middle" dominant-baseline="middle">Stall</text>
+<polygon data-id="fur-p-sinks" points="18,110 95,110 95,440 18,440" fill="#d6d3d1" stroke="#a8a29e" stroke-width="2"/>
+<text x="56.5" y="275" font-family="monospace" font-size="16" fill="#44403c" text-anchor="middle" dominant-baseline="middle">counter</text>
+<polygon data-id="fur-b-sinks" points="810,35 890,35 890,395 810,395" fill="#d6d3d1" stroke="#a8a29e" stroke-width="2"/>
+<text x="850" y="215" font-family="monospace" font-size="16" fill="#44403c" text-anchor="middle" dominant-baseline="middle">counter</text>
+<polygon data-id="fur-plant" points="275,630 315,630 315,670 275,670" fill="#d6d3d1" stroke="#a8a29e" stroke-width="2"/>
+<text x="295" y="650" font-family="monospace" font-size="16" fill="#44403c" text-anchor="middle" dominant-baseline="middle">planter</text>
+<line data-id="w-p-left" x1="10" y1="10" x2="10" y2="700" stroke="#1c1917" stroke-width="12" stroke-linecap="butt"/>
+<line data-id="w-p-top" x1="10" y1="10" x2="420" y2="10" stroke="#1c1917" stroke-width="12" stroke-linecap="butt"/>
+<line data-id="w-p-right-stalls" x1="420" y1="10" x2="420" y2="455" stroke="#1c1917" stroke-width="12" stroke-linecap="butt"/>
+<line data-id="w-p-stall3-bot" x1="180" y1="455" x2="420" y2="455" stroke="#1c1917" stroke-width="12" stroke-linecap="butt"/>
+<line data-id="w-p-stall-front" x1="180" y1="10" x2="180" y2="455" stroke="#1c1917" stroke-width="8" stroke-linecap="butt"/>
+<line data-id="w-p-stall1-div" x1="180" y1="155" x2="420" y2="155" stroke="#1c1917" stroke-width="8" stroke-linecap="butt"/>
+<line data-id="w-p-stall2-div" x1="180" y1="305" x2="420" y2="305" stroke="#1c1917" stroke-width="8" stroke-linecap="butt"/>
+<line data-id="w-p-util-top" x1="10" y1="600" x2="255" y2="600" stroke="#1c1917" stroke-width="12" stroke-linecap="butt"/>
+<line data-id="w-p-util-right" x1="255" y1="600" x2="255" y2="700" stroke="#1c1917" stroke-width="12" stroke-linecap="butt"/>
+<line data-id="w-p-bot-left" x1="10" y1="700" x2="255" y2="700" stroke="#1c1917" stroke-width="12" stroke-linecap="butt"/>
+<line data-id="w-p-bot-mid" x1="255" y1="700" x2="345" y2="700" stroke="#1c1917" stroke-width="12" stroke-linecap="butt"/>
+<line data-id="w-p-entry-wall" x1="345" y1="455" x2="345" y2="700" stroke="#1c1917" stroke-width="12" stroke-linecap="butt"/>
+<line data-id="w-vest-top" x1="345" y1="455" x2="560" y2="455" stroke="#1c1917" stroke-width="12" stroke-linecap="butt"/>
+<line data-id="w-b-entry-wall" x1="560" y1="455" x2="560" y2="700" stroke="#1c1917" stroke-width="12" stroke-linecap="butt"/>
+<line data-id="w-b-bot" x1="560" y1="700" x2="965" y2="700" stroke="#1c1917" stroke-width="12" stroke-linecap="butt"/>
+<line data-id="w-b-top" x1="485" y1="10" x2="900" y2="10" stroke="#1c1917" stroke-width="12" stroke-linecap="butt"/>
+<line data-id="w-b-stalls-left" x1="485" y1="10" x2="485" y2="455" stroke="#1c1917" stroke-width="12" stroke-linecap="butt"/>
+<line data-id="w-b-stalls-right" x1="735" y1="10" x2="735" y2="290" stroke="#1c1917" stroke-width="8" stroke-linecap="butt"/>
+<line data-id="w-b-stall1-div" x1="485" y1="145" x2="735" y2="145" stroke="#1c1917" stroke-width="8" stroke-linecap="butt"/>
+<line data-id="w-b-stall2-bot" x1="485" y1="290" x2="735" y2="290" stroke="#1c1917" stroke-width="8" stroke-linecap="butt"/>
+<line data-id="w-b-urinal-screen" x1="485" y1="375" x2="580" y2="375" stroke="#1c1917" stroke-width="8" stroke-linecap="butt"/>
+<line data-id="w-b-right-top" x1="900" y1="10" x2="900" y2="426" stroke="#1c1917" stroke-width="12" stroke-linecap="butt"/>
+<line data-id="w-b-util-top" x1="875" y1="426" x2="965" y2="426" stroke="#1c1917" stroke-width="12" stroke-linecap="butt"/>
+<line data-id="w-b-util-right" x1="965" y1="426" x2="965" y2="700" stroke="#1c1917" stroke-width="12" stroke-linecap="butt"/>
+<line data-id="w-b-util-left" x1="875" y1="426" x2="875" y2="700" stroke="#1c1917" stroke-width="12" stroke-linecap="butt"/>
+<circle data-id="d-p-stall1" cx="180" cy="80" r="42" fill="none" stroke="#0d9488" stroke-width="3"/>
+<circle data-id="d-p-stall2" cx="180" cy="226" r="41.5" fill="none" stroke="#0d9488" stroke-width="3"/>
+<circle data-id="d-p-stall3" cx="180" cy="373" r="41.5" fill="none" stroke="#0d9488" stroke-width="3"/>
+<circle data-id="d-p-util" cx="88" cy="600" r="42.5" fill="none" stroke="#0d9488" stroke-width="3"/>
+<circle data-id="d-p-entry" cx="345" cy="552" r="42.5" fill="none" stroke="#0d9488" stroke-width="3"/>
+<circle data-id="d-b-entry" cx="560" cy="552" r="42.5" fill="none" stroke="#0d9488" stroke-width="3"/>
+<circle data-id="d-b-stall1" cx="735" cy="68" r="42.5" fill="none" stroke="#0d9488" stroke-width="3"/>
+<circle data-id="d-b-stall2" cx="735" cy="215" r="40" fill="none" stroke="#0d9488" stroke-width="3"/>
+<circle data-id="d-b-exit" cx="865" cy="700" r="37.5" fill="none" stroke="#0d9488" stroke-width="3"/>
+<circle data-id="gate-1" cx="454" cy="700" r="106" fill="none" stroke="#0d9488" stroke-width="3"/>
+<g data-id="f-entrance" transform="translate(452 700) rotate(0)">
+<rect x="-16" y="-16" width="32" height="32" fill="white" stroke="#7c3aed" stroke-width="3"/>
+<text font-family="monospace" font-size="18" fill="#7c3aed" text-anchor="middle" dominant-baseline="middle">→</text>
+</g>
+<g data-id="f-restroom-women" transform="translate(95 300) rotate(0)">
+<rect x="-16" y="-16" width="32" height="32" fill="white" stroke="#7c3aed" stroke-width="3"/>
+<text font-family="monospace" font-size="18" fill="#7c3aed" text-anchor="middle" dominant-baseline="middle">WC</text>
+</g>
+<g data-id="f-restroom-men" transform="translate(700 500) rotate(0)">
+<rect x="-16" y="-16" width="32" height="32" fill="white" stroke="#7c3aed" stroke-width="3"/>
+<text font-family="monospace" font-size="18" fill="#7c3aed" text-anchor="middle" dominant-baseline="middle">WC</text>
+</g>
+</svg>
