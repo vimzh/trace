@@ -1,0 +1,241 @@
+"use client";
+
+import {
+  useCallback,
+  useEffect,
+  useId,
+  useLayoutEffect,
+  useRef,
+  useState,
+  type ReactNode,
+} from "react";
+import { Maximize, ZoomIn, ZoomOut } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { mapContent } from "@/data/map";
+
+const MAX_SCALE = 8;
+const ZOOM_STEP = 1.25;
+
+type Transform = { scale: number; tx: number; ty: number };
+
+export type CanvasGrid = {
+  originX: number;
+  originY: number;
+  step: number;
+};
+
+export function gridPatternMetrics(transform: Transform, grid: CanvasGrid) {
+  const fine = grid.step * transform.scale;
+  return {
+    fine,
+    major: fine * 5,
+    x: transform.tx + grid.originX * transform.scale,
+    y: transform.ty + grid.originY * transform.scale,
+  };
+}
+
+type CanvasViewportProps = {
+  children: ReactNode;
+  contentHeight: number;
+  contentWidth: number;
+  grid?: CanvasGrid;
+};
+
+// Figma-style viewport: pinch / ctrl+wheel zooms toward the cursor, plain
+// wheel (trackpad two-finger) pans, floating buttons zoom and re-fit.
+export function CanvasViewport({
+  children,
+  contentHeight,
+  contentWidth,
+  grid,
+}: CanvasViewportProps) {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const patternId = useId().replaceAll(":", "");
+  const [transform, setTransform] = useState<Transform | null>(null);
+  const minScaleRef = useRef(0.05);
+  const userAdjustedRef = useRef(false);
+
+  const fit = useCallback(() => {
+    const container = containerRef.current;
+    if (!container || contentWidth <= 0 || contentHeight <= 0) return;
+    const rect = container.getBoundingClientRect();
+    const margin = 24;
+    // Container not laid out yet — the ResizeObserver will call again.
+    if (rect.width < margin * 3 || rect.height < margin * 3) return;
+    const scale = Math.min(
+      (rect.width - margin * 2) / contentWidth,
+      (rect.height - margin * 2) / contentHeight
+    );
+    minScaleRef.current = scale * 0.4;
+    userAdjustedRef.current = false;
+    setTransform({
+      scale,
+      tx: (rect.width - contentWidth * scale) / 2,
+      ty: (rect.height - contentHeight * scale) / 2,
+    });
+  }, [contentHeight, contentWidth]);
+
+  useLayoutEffect(() => {
+    fit();
+    const container = containerRef.current;
+    if (!container) return;
+    const observer = new ResizeObserver(() => {
+      // Follow layout changes until the user takes over the view.
+      if (!userAdjustedRef.current) fit();
+    });
+    observer.observe(container);
+    return () => observer.disconnect();
+  }, [fit]);
+
+  const zoomAt = useCallback((clientX: number, clientY: number, factor: number) => {
+    const container = containerRef.current;
+    if (!container) return;
+    const rect = container.getBoundingClientRect();
+    const cx = clientX - rect.left;
+    const cy = clientY - rect.top;
+    userAdjustedRef.current = true;
+    setTransform((current) => {
+      if (!current) return current;
+      const scale = Math.min(
+        MAX_SCALE,
+        Math.max(minScaleRef.current, current.scale * factor)
+      );
+      const ratio = scale / current.scale;
+      return {
+        scale,
+        tx: cx - (cx - current.tx) * ratio,
+        ty: cy - (cy - current.ty) * ratio,
+      };
+    });
+  }, []);
+
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const handleWheel = (event: WheelEvent) => {
+      event.preventDefault();
+      if (event.ctrlKey || event.metaKey) {
+        zoomAt(event.clientX, event.clientY, Math.exp(-event.deltaY * 0.01));
+        return;
+      }
+
+      userAdjustedRef.current = true;
+      setTransform((current) =>
+        current
+          ? {
+              ...current,
+              tx: current.tx - event.deltaX,
+              ty: current.ty - event.deltaY,
+            }
+          : current
+      );
+    };
+
+    container.addEventListener("wheel", handleWheel, { passive: false });
+    return () => container.removeEventListener("wheel", handleWheel);
+  }, [zoomAt]);
+
+  function zoomCenter(factor: number) {
+    const container = containerRef.current;
+    if (!container) return;
+    const rect = container.getBoundingClientRect();
+    zoomAt(rect.left + rect.width / 2, rect.top + rect.height / 2, factor);
+  }
+
+  const gridMetrics = transform && grid ? gridPatternMetrics(transform, grid) : null;
+
+  return (
+    <div
+      className="relative h-full w-full overflow-hidden overscroll-contain bg-muted/40"
+      ref={containerRef}
+    >
+      {gridMetrics && (
+        <svg
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 h-full w-full"
+        >
+          <defs>
+            <pattern
+              height={gridMetrics.fine}
+              id={`${patternId}-fine`}
+              patternUnits="userSpaceOnUse"
+              width={gridMetrics.fine}
+              x={gridMetrics.x}
+              y={gridMetrics.y}
+            >
+              <path
+                className="stroke-foreground/8"
+                d={`M ${gridMetrics.fine} 0 L 0 0 0 ${gridMetrics.fine}`}
+                fill="none"
+                strokeWidth={0.75}
+              />
+            </pattern>
+            <pattern
+              height={gridMetrics.major}
+              id={`${patternId}-major`}
+              patternUnits="userSpaceOnUse"
+              width={gridMetrics.major}
+              x={gridMetrics.x}
+              y={gridMetrics.y}
+            >
+              <path
+                className="stroke-foreground/15"
+                d={`M ${gridMetrics.major} 0 L 0 0 0 ${gridMetrics.major}`}
+                fill="none"
+                strokeWidth={1}
+              />
+            </pattern>
+          </defs>
+          <rect fill={`url(#${patternId}-fine)`} height="100%" width="100%" />
+          <rect fill={`url(#${patternId}-major)`} height="100%" width="100%" />
+        </svg>
+      )}
+      {transform && (
+        <div
+          className="absolute left-0 top-0"
+          style={{
+            height: contentHeight,
+            transform: `translate(${transform.tx}px, ${transform.ty}px) scale(${transform.scale})`,
+            transformOrigin: "0 0",
+            width: contentWidth,
+          }}
+        >
+          {children}
+        </div>
+      )}
+      <div className="absolute bottom-3 right-3 flex flex-col gap-1">
+        <Button
+          aria-label={mapContent.viewport.zoomIn}
+          className="size-7 cursor-pointer rounded-sm p-0"
+          onClick={() => zoomCenter(ZOOM_STEP)}
+          size="sm"
+          type="button"
+          variant="outline"
+        >
+          <ZoomIn className="size-3.5" />
+        </Button>
+        <Button
+          aria-label={mapContent.viewport.zoomOut}
+          className="size-7 cursor-pointer rounded-sm p-0"
+          onClick={() => zoomCenter(1 / ZOOM_STEP)}
+          size="sm"
+          type="button"
+          variant="outline"
+        >
+          <ZoomOut className="size-3.5" />
+        </Button>
+        <Button
+          aria-label={mapContent.viewport.fit}
+          className="size-7 cursor-pointer rounded-sm p-0"
+          onClick={fit}
+          size="sm"
+          type="button"
+          variant="outline"
+        >
+          <Maximize className="size-3.5" />
+        </Button>
+      </div>
+    </div>
+  );
+}
