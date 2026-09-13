@@ -76,21 +76,6 @@ fallback between providers.
 - Zod schemas and a shared typed floor-model package
 - Manifold 3D for watertight binary STL generation
 
-## What works today
-
-- One-floor plans become versioned vector models with confidence-tagged walls,
-  rooms, openings, routes, landmarks, and labels.
-- Users can inspect low-confidence elements, edit geometry directly, or request
-  restricted prompt-based changes.
-- Tactile conversion generates tiled plates, Grade 1 UEB braille keys, legends,
-  relief geometry, validation history, and downloadable STL files.
-- Automated tests cover agent contracts, concurrent isolation, model versions,
-  tactile rules, mesh integrity, rasterization, and UI geometry.
-
-The geometry checks are informed by tactile and braille guidance; they are not
-accessibility certification. Source review, slicer inspection, physical prints,
-and evaluation with blind readers remain required.
-
 ## Run locally
 
 Prerequisites: Bun 1.3+, PostgreSQL 17, and an OpenAI API key.
@@ -111,15 +96,6 @@ bun run lint
 bun test packages/floor-model apps/api/src apps/web/src
 bun run build
 ```
-
-## What's next
-
-- Replace process-local jobs and filesystem artifacts with durable production
-  infrastructure.
-- Test representative prints with blind readers and refine symbols, legends,
-  orientation cues, and braille placement from that evidence.
-- Expand beyond one-floor, English, Grade 1 UEB output after the core workflow
-  is validated in physical use.
 
 ## License
 
