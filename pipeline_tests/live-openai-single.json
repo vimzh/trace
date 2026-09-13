@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "usage": "One local live pipeline check. Source and tactile reference have different scopes; skip the paid three-image comparison. Existing corpus and historical outputs are preserved.",
+  "cases": [
+    {
+      "slug": "queenmary-openai-20260912",
+      "venue": "Queen Mary Hospital, Hong Kong — Main Block ground floor",
+      "type": "hospital",
+      "planPath": "pipeline_tests/assets/queenmary-plan.jpg",
+      "tactileImagePath": "pipeline_tests/assets/queenmary-tactile.jpg",
+      "evidenceUrl": "pipeline_tests/SOURCES.md",
+      "planPage": 1,
+      "scope": "Ground-floor Main Block overhead evacuation plan. The tactile reference depicts the wider hospital campus, so it is unsuitable for a matching-floor comparison; use --skip-compare."
+    }
+  ]
+}

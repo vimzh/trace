@@ -1,0 +1,36 @@
+[
+  {
+    "slug": "buffalo-downtown-central-library",
+    "title": "Buffalo Downtown Central Library",
+    "source": "apps/web/public/gallery/buffalo-library-source.png",
+    "stl": "apps/web/public/gallery/buffalo-library-map.stl"
+  },
+  {
+    "slug": "test-public-restrooms",
+    "title": "Public restrooms",
+    "source": "apps/web/public/gallery/test-public-restrooms-source.png",
+    "stl": "apps/web/public/gallery/test-public-restrooms.stl"
+  },
+  {
+    "slug": "fountain-hills-community-center",
+    "title": "Fountain Hills Community Center",
+    "source": "apps/web/public/gallery/fountain-hills-source.png",
+    "stl": "apps/web/public/gallery/fountain-hills-map.stl"
+  },
+  {
+    "slug": "caa-ed-mirvish-theatre",
+    "title": "CAA Ed Mirvish Theatre",
+    "source": "apps/web/public/gallery/ed-mirvish-source.png",
+    "stl": "apps/web/public/gallery/ed-mirvish-map.stl"
+  },
+  {
+    "slug": "office-dime-building-1st",
+    "title": "Dime Building, first floor — source-only control",
+    "source": "test-assets/floor-plans/office-dime-building-1st.png"
+  },
+  {
+    "slug": "school-skyline-high",
+    "title": "Skyline High School — source-only control",
+    "source": "test-assets/floor-plans/school-skyline-high.png"
+  }
+]
